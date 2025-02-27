@@ -22,50 +22,6 @@ namespace Assignment02EFCore.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Assignment02EFCore.Data.Model.Blog", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("BlogHeaderId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Blogs");
-                });
-
-            modelBuilder.Entity("Assignment02EFCore.Data.Model.BlogHeader", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("BlogId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BlogId")
-                        .IsUnique()
-                        .HasFilter("[BlogId] IS NOT NULL");
-
-                    b.ToTable("BlogHeaders");
-                });
-
             modelBuilder.Entity("Assignment02EFCore.Data.Model.Course", b =>
                 {
                     b.Property<int>("Id")
@@ -94,7 +50,7 @@ namespace Assignment02EFCore.Data.Migrations
 
                     b.HasIndex("TopicId");
 
-                    b.ToTable("Courses");
+                    b.ToTable("Courses", (string)null);
                 });
 
             modelBuilder.Entity("Assignment02EFCore.Data.Model.CourseInstructor", b =>
@@ -112,7 +68,7 @@ namespace Assignment02EFCore.Data.Migrations
 
                     b.HasIndex("InstructorId");
 
-                    b.ToTable("CourseInstructor");
+                    b.ToTable("CourseInstructor", (string)null);
                 });
 
             modelBuilder.Entity("Assignment02EFCore.Data.Model.Department", b =>
@@ -180,7 +136,7 @@ namespace Assignment02EFCore.Data.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Instructors");
+                    b.ToTable("Instructors", (string)null);
                 });
 
             modelBuilder.Entity("Assignment02EFCore.Data.Model.Student", b =>
@@ -211,7 +167,7 @@ namespace Assignment02EFCore.Data.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Students");
+                    b.ToTable("Students", (string)null);
                 });
 
             modelBuilder.Entity("Assignment02EFCore.Data.Model.StudentCourse", b =>
@@ -229,7 +185,7 @@ namespace Assignment02EFCore.Data.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("StudentCourse");
+                    b.ToTable("StudentCourse", (string)null);
                 });
 
             modelBuilder.Entity("Assignment02EFCore.Data.Model.Topic", b =>
@@ -246,16 +202,7 @@ namespace Assignment02EFCore.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Topics");
-                });
-
-            modelBuilder.Entity("Assignment02EFCore.Data.Model.BlogHeader", b =>
-                {
-                    b.HasOne("Assignment02EFCore.Data.Model.Blog", "Blog")
-                        .WithOne("BlogHeader")
-                        .HasForeignKey("Assignment02EFCore.Data.Model.BlogHeader", "BlogId");
-
-                    b.Navigation("Blog");
+                    b.ToTable("Topics", (string)null);
                 });
 
             modelBuilder.Entity("Assignment02EFCore.Data.Model.Course", b =>
@@ -338,11 +285,6 @@ namespace Assignment02EFCore.Data.Migrations
                     b.Navigation("Course");
 
                     b.Navigation("Student");
-                });
-
-            modelBuilder.Entity("Assignment02EFCore.Data.Model.Blog", b =>
-                {
-                    b.Navigation("BlogHeader");
                 });
 
             modelBuilder.Entity("Assignment02EFCore.Data.Model.Course", b =>
