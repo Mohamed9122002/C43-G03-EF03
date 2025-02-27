@@ -25,8 +25,10 @@ namespace Assignment02EFCore.Data.DbContexts
             // Apply all configurations
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             // Composite Primary Key 
+            #region Mapping RelationShip Between Student,Course , Course ,Instructor => Many To Many 
             modelBuilder.Entity<StudentCourse>().HasKey(SC => new { SC.StudentId, SC.CourseId });
-            modelBuilder.Entity<CourseInstructor>().HasKey(CI => new { CI.CourseId,CI.InstructorId });
+            modelBuilder.Entity<CourseInstructor>().HasKey(CI => new { CI.CourseId, CI.InstructorId }); 
+            #endregion
 
         }
         public DbSet<Student> Students { get; set; }

@@ -14,11 +14,10 @@ namespace Assignment02EFCore.Data.Model
         [ForeignKey(nameof(StudentCourse.Course))]
         public int CourseId { get; set; }
         public int Grade    { get; set; }
-        //[InverseProperty()]
+        #region Mapping RelationShip Between Student,Course  => Many To Many  
         public Student Student { get; set; } = null!;
-
-
         public Course Course { get; set; } = null!;
 
+        #endregion
     }
 }
