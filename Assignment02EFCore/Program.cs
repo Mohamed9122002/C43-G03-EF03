@@ -65,6 +65,31 @@ namespace Assignment02EFCore
             #endregion
             #endregion
 
+            #region Data Seeding 
+
+            #region Eager Loading 
+            //var result= dbContext.Students.FirstOrDefault(S => S.Id == 2);
+            //if (result is not null )
+            //{
+            //    Console.WriteLine($"{result.FirstName} - {result.DepartmentId} - {result.StudentDepartment?.Name} ");
+            //}
+            //var result = dbContext.Students.Include(S=>S.StudentDepartment).FirstOrDefault(S => S.Id == 2);
+            //if (result is not null)
+            //{
+            //    Console.WriteLine($"{result.FirstName} - {result.DepartmentId} - {result.StudentDepartment?.Name} ");
+            //}
+            #endregion
+            #region Lazy Loading 
+            //var result = dbContext.Students.FirstOrDefault(s => s.Id == 2);
+            //if (result is not null)
+            //{
+            //    Console.WriteLine($"{result.FirstName} - {result.DepartmentId} - {result.StudentDepartment?.Name} ");
+            //}
+            #endregion
+
+            #endregion
+
+
         }
     }
 }

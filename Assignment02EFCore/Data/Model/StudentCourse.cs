@@ -15,8 +15,8 @@ namespace Assignment02EFCore.Data.Model
         public int CourseId { get; set; }
         public int Grade    { get; set; }
         #region Mapping RelationShip Between Student,Course  => Many To Many  
-        public Student Student { get; set; } = null!;
-        public Course Course { get; set; } = null!;
+        public virtual Student Student { get; set; } = null!;
+        public virtual Course Course { get; set; } = null!;
 
         #endregion
     }

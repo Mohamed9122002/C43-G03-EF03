@@ -22,16 +22,16 @@ namespace Assignment02EFCore.Data.Model
         public int TopicId { get; set; }
         // Navigational Proerty of one 
         [InverseProperty(nameof(Topic.Courses))]
-        public Topic Topics{ get; set; } = null!;
+        public virtual Topic Topics{ get; set; } = null!;
 
         #endregion
 
         #region Many To Many Using Table RelationShip bettween Course and Student
 
-        public ICollection<StudentCourse> CourseStudents { get; set; } = new HashSet<StudentCourse>();
+        public virtual ICollection<StudentCourse> CourseStudents { get; set; } = new HashSet<StudentCourse>();
         #endregion
         #region Many To Many RelationShip Bettween Course and Instructor
-        public ICollection<CourseInstructor> CourseInstructors { get; set; } = new HashSet<CourseInstructor>();
+        public virtual ICollection<CourseInstructor> CourseInstructors { get; set; } = new HashSet<CourseInstructor>();
         #endregion
 
 

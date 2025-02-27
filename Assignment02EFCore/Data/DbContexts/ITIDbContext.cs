@@ -18,7 +18,7 @@ namespace Assignment02EFCore.Data.DbContexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(" Server = .; Database = ITI ; Trusted_Connection = True; Encrypt = True; TrustServerCertificate = True");
+            optionsBuilder.UseLazyLoadingProxies().UseSqlServer(" Server = .; Database = ITI ; Trusted_Connection = True; Encrypt = True; TrustServerCertificate = True");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,8 +31,8 @@ namespace Assignment02EFCore.Data.DbContexts
             #endregion
 
         }
-        public DbSet<Student> Students { get; set; }
-        public DbSet<Department> Departments { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<Department> Departments { get; set; }
         public DbSet<Instructor> Instructors { get; set; }
         public DbSet<Topic > Topics { get; set; }
         public DbSet<Course> Courses { get; set; }

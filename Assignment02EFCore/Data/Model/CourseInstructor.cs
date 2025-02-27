@@ -18,9 +18,9 @@ namespace Assignment02EFCore.Data.Model
         public int evaluate { get; set; }
         #region Mapping RelationShip Between Course ,Instructor => Many To Many 
         [InverseProperty(nameof(Course.CourseInstructors))]
-        public Course Courses { get; set; }
+        public virtual Course Courses { get; set; }
         [InverseProperty(nameof(Instructor.Instructorcourse))]
-        public Instructor Instructors { get; set; } 
+        public virtual Instructor Instructors { get; set; } 
         #endregion
     }
 }

@@ -16,6 +16,6 @@ namespace Assignment02EFCore.Data.Model
         // one To Many 
 
         [InverseProperty(nameof(Course.Topics))]
-        public ICollection<Course> Courses { get; set; } = new HashSet<Course>();
+        public virtual ICollection<Course> Courses { get; set; } = new HashSet<Course>();
     }
 }

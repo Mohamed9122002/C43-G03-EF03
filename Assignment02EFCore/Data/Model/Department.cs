@@ -16,7 +16,7 @@ namespace Assignment02EFCore.Data.Model
         // Many is Mandatory 
         // Navigational Property => Many 
         [InverseProperty(nameof(Student.StudentDepartment))]
-        public ICollection<Student> Students { get; set; } = new HashSet<Student>();
+        public virtual ICollection<Student> Students { get; set; } = new HashSet<Student>();
         #endregion
         #region Mapping Relationalship  one to one  Department , Instructor  --> Mange
         //  Mandatory - optional
@@ -26,7 +26,7 @@ namespace Assignment02EFCore.Data.Model
         public int? MangerId { get; set; }
         // Navigation Property => One
         [InverseProperty(nameof(Instructor.MangedDepartment))]
-        public Instructor Manger { get; set; } = null!;
+        public virtual Instructor Manger { get; set; } = null!;
 
         #endregion
         #region One To Many RelationShip Department , Instructor  --> Contains
@@ -35,7 +35,7 @@ namespace Assignment02EFCore.Data.Model
         // Many is Mandatory
         // Navigation Property => Many
         [InverseProperty(nameof(Instructor.DepartmentContainInstructors))]
-        public ICollection<Instructor> Instructors { get; set; } = new HashSet<Instructor>();
+        public virtual ICollection<Instructor> Instructors { get; set; } = new HashSet<Instructor>();
         #endregion
 
     }

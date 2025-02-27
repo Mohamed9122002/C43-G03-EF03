@@ -21,11 +21,11 @@ namespace Assignment02EFCore.Data.Model
         public int DepartmentId { get; set; }
         // Navigation Property => One 
         [InverseProperty(nameof(Department.Students))]
-        public Department StudentDepartment { get; set; } = null!;
+        public virtual Department StudentDepartment { get; set; } = null!;
         #endregion
         #region Many To Many  using Table RelationShipe 
 
-        public ICollection<StudentCourse> StudentCourses { get; set; } = new HashSet<StudentCourse>();
+        public virtual ICollection<StudentCourse> StudentCourses { get; set; } = new HashSet<StudentCourse>();
 
         #endregion
 
