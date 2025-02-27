@@ -23,7 +23,7 @@ namespace Assignment02EFCore.Data.Model
         // Manger 
         // Department Must be Manger 
         [ForeignKey(nameof(Department.Manger))]
-        public int MangerId { get; set; }
+        public int? MangerId { get; set; }
         // Navigation Property => One
         [InverseProperty(nameof(Instructor.MangedDepartment))]
         public Instructor Manger { get; set; } = null!;
